@@ -18294,15 +18294,12 @@ var SpawnMeshOnSelect = class extends Component {
     s.addEventListener("select", this.spawnMesh.bind(this));
   }
   spawnMesh() {
-    if (!isSpawn) {
-      const spawnedObject = this.engine.scene.addObject();
-      spawnedObject.setTransformLocal(this.object.getTransformWorld()).scale([0.25, 0.25, 0.25]).translate([0, 0.25, 0]);
-      const mesh = spawnedObject.addComponent(MeshComponent);
-      mesh.material = this.material;
-      mesh.mesh = this.mesh;
-      mesh.active = true;
-      isSpawn = true;
-    }
+    const spawnedObject = this.engine.scene.addObject();
+    spawnedObject.setTransformLocal(this.object.getTransformWorld()).scale([0.25, 0.25, 0.25]).translate([0, 0.25, 0]);
+    const mesh = spawnedObject.addComponent(MeshComponent);
+    mesh.material = this.material;
+    mesh.mesh = this.mesh;
+    mesh.active = true;
   }
 };
 __publicField(SpawnMeshOnSelect, "TypeName", "spawn-mesh-on-select");
