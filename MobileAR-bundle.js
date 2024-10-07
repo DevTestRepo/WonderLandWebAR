@@ -18289,17 +18289,21 @@ __decorate12([
 var SpawnMeshOnSelect = class extends Component {
   start() {
     this.engine.onXRSessionStart.add(this.onXRSessionStart.bind(this));
+    this.isVisible = false;
   }
   onXRSessionStart(s) {
     s.addEventListener("select", this.spawnMesh.bind(this));
   }
   spawnMesh() {
-    const spawnedObject = this.engine.scene.addObject();
-    spawnedObject.setTransformLocal(this.object.getTransformWorld()).scale([0.25, 0.25, 0.25]).translate([0, 0.25, 0]);
-    const mesh = spawnedObject.addComponent(MeshComponent);
-    mesh.material = this.material;
-    mesh.mesh = this.mesh;
-    mesh.active = true;
+    if (!this.isVisible) {
+      const spawnedObject = this.engine.scene.addObject();
+      spawnedObject.setTransformLocal(this.object.getTransformWorld()).scale([0.25, 0.25, 0.25]).translate([0, 0.25, 0]);
+      const mesh = spawnedObject.addComponent(MeshComponent);
+      mesh.material = this.material;
+      mesh.mesh = this.mesh;
+      mesh.active = true;
+      this.isVisible = true;
+    }
   }
 };
 __publicField(SpawnMeshOnSelect, "TypeName", "spawn-mesh-on-select");
