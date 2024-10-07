@@ -18303,6 +18303,7 @@ var SpawnMeshOnSelect = class extends Component {
       mesh.mesh = this.mesh;
       mesh.active = true;
       this.isVisible = true;
+      spawnedObject.addComponent("pinch-scale", { initialScale: [0.25, 0.25, 0.25] });
     }
   }
 };
