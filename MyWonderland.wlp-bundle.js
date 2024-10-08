@@ -18369,7 +18369,7 @@ var MicrophoneRecorder = class {
       model: "gpt-4",
       // or "gpt-3.5-turbo"
       messages: [
-        { role: "system", content: "You are a helpful assistant.you are a doctor talk in medical Always respond in English." },
+        { role: "system", content: "You are a helpful assistant.you are a doctor name Alex talk in medical Always respond in English reply under 300 tokens ." },
         { role: "user", content: transcribedText }
       ]
     };
